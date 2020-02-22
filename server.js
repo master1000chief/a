@@ -33,7 +33,7 @@ corsProxy.createServer({
     httpProxyOptions: {
         // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
         xfwd: true,
-        cookieDomainRewrite: 'http://localhost/3000'
+        cookieDomainRewrite: 'test.mydomain.dot.com'
     },
     spoofOrigin: true,
 }).listen(port, host, () => {
