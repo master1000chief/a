@@ -32,9 +32,10 @@ corsProxy.createServer({
     redirectSameOrigin: true,
     httpProxyOptions: {
         // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
-        xfwd: false,
+        xfwd: true,
+        cookieDomainRewrite: 'http://localhost/3000'
     },
-    spoofOrigin: true
+    spoofOrigin: true,
 }).listen(port, host, () => {
     console.log('Running CORS Escape on ' + host + ':' + port);
 });
