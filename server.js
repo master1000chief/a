@@ -33,7 +33,10 @@ corsProxy.createServer({
     httpProxyOptions: {
         // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
         xfwd: true,
-        cookieDomainRewrite: 'bigbanana123.herokuapp.com'
+        cookieDomainRewrite: {
+            'bigbanana123.herokuapp.com' : '.console.playblackdesert.com',
+            '*' : 'bigbanana123.herokuapp.com'
+        }
     },
     spoofOrigin: true,
 }).listen(port, host, () => {
